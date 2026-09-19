@@ -1,0 +1,112 @@
+
+
+.logo {
+    width: 10%; /* Ajusta el ancho del logotipo */ 
+    max-width: 60%; /* Permite como maximo un ancho del 60% o como se desee ajsutar */
+    height: auto; /* La altura se ajusta automaticamente para que se ajuste con el ancho que se proporciona */
+    margin-right: 20px; /* Ajusta la separación del margen hacia la derecha */
+    position: absolute; /* Hace que el componente no afecte la distancia de otros */
+    top: 0; /* Evita la colisión con otros componentes */
+}
+
+.logoR {
+    width: 10%; /* Ajusta el ancho del logotipo */ 
+    max-width: 60%; /* Permite como maximo un ancho del 60% o como se desee ajsutar */
+    height: auto; /* La altura se ajusta automaticamente para que se ajuste con el ancho que se proporciona */
+    margin-left: 20px; /* Ajusta la separación del margen hacia la izquierda */
+    position: absolute; /* Hace que el componente no afecte la distancia de otros */
+    top: 10px; /* Evita la colisión con otros componentes */
+    right: 20px; /* Ajusta la imagen hacia la esquina derecha */
+}
+.contenido {
+    text-align: center; /* Ajusta el texto en el centro */
+    align-items: center; /* Ajusta el componente en el centro */
+    display: flex; /* Convierte el contenedor en un Flexbox para organizar los elementos hijos de manera flexible en una fila. */
+    justify-content: space-around; /* Distribuye los elementos horizontalmente dejando espacio alrededor de cada uno de ellos. */
+}
+
+.titulo {
+    margin: 0; /* Ajustamos la separación a 0 */
+}
+
+.subtitulo {
+    margin: 0; /* Ajustamos la separación a 0 */
+}
+
+.contenedor {
+    margin-top: 8px; /* Ajusta la separación del margen de arriba a abajo */
+    font-size: x-large; /* Ajustamos el tamaño de la fuente */
+    height: 120vh; /* Ajustamos la altura de la tabla */
+    max-height: 64vh; /* Altura máxima de la tabla */
+    overflow-y: auto; /* Muestra una barra de desplazamiento vertical únicamente cuando el contenido supera la altura del contenedor. */
+    border: 1px solid #000000; /* Stroke de la tabla */
+    background-color: #ffffff;  /* Color de fondo de la tabla */
+}
+
+#tableId {
+    max-height: 50%; /* Altura maxima de la tabla*/
+    width: 100%; /* Ancho de la tabla */
+    font-size: large; /* Tamaño de la fuente */
+}
+
+.tituloCantidad {
+    width: 10%; /* Ancho del titulo */
+}
+
+#carrito {
+    max-height: 10%; /* Altura máxima del carrito */
+    width: 100%; /* Ancho del carrito */
+    font-size: large; /* Tamaño de la fuente */
+}
+
+.cProd {
+    font-size: xx-large; /* El tamaño de la fuente */
+    width: calc(100% - 8px);    /* con esta función el navegador calcula en tiempo real el tamaño para ajustarlo */
+}
+
+.btn {
+    display: flex; /* Convierte el contenedor en un Flexbox para organizar los elementos hijos de manera flexible en una fila. */
+    align-items: center; /* Ajusta el componente en el centro */
+}
+
+.boton {
+    height: 15vh; /* Ajustamos el tamaño de los botones */
+    width: 20dvh; /* Ajustamos el ancho de los botones */
+    background-size: 70%;
+    background-repeat: no-repeat; /* Evita que la imagen se repita. */
+    background-position: center; /* Centra la imagen de fondo. */
+    cursor: pointer; /* Muestra una mano al pasar el cursor. */
+    padding: 10px;
+    margin-right: 74px; 
+}
+
+#btn1 {
+    background-image: url(../img/botanas.png); /* Cargamos la url de la imagen que utilizaremos */
+}
+
+#btn2 {
+    background-image: url(../img/cafe.png); /* Cargamos la url de la imagen que utilizaremos */
+}
+
+#btn3 {
+    background-image: url(../img/pagoEfectivo.png); /* Cargamos la url de la imagen que utilizaremos */
+}
+
+#btn4 {
+    background-image: url(../img/pagoTarjeta.png); /* Cargamos la url de la imagen que utilizaremos */
+}
+
+#btn5 {
+    background-image: url(../img/transferencia.png); /* Cargamos la url de la imagen que utilizaremos */
+}
+
+.total {
+    display: flex; /* Convierte el contenedor en un Flexbox para organizar los elementos hijos de manera flexible en una fila. */
+    border: 2px solid #000000; /* borde de la columna que contiene la tabla del total */
+    height: 5dvw; /* Ajustamos la altura del borde */
+    width: 30%; /* Ajustamos el ancho del borde */
+    margin-left: auto; /* Ajustamos la separación de la izquierda */
+    font-size: xx-large; /* Ajustamos tamaño de la fuente */
+    align-items: center; /* Alineamos los items al centro */
+    justify-content: center; /* Centramos los elementos horizontalmente. */
+}
