@@ -5,7 +5,57 @@ var total = 0;
 
 
 function buscarProducto(event) {
-    if (event.keyCode === 13) {
+
+
+    if (event.keyCode === 27) {
+
+        var tabla = document.getElementById("carrito");
+
+        if (tabla.rows.length > 0) {
+            var ultimaFila = tabla.rows[tabla.rows.length - 1];
+
+            ultimaFila.cells[3].textContent
+            var subtotal = Number(ultimaFila.cells[3].textContent);
+            total -= subtotal;
+
+            document.getElementById("total").textContent = "$" + total.toFixed(2);
+
+            ultimaFila.remove();
+
+        }
+    }
+
+
+    else if (event.keyCode === 82 || event.keyCode === 114) {
+
+        var tabla = document.getElementById("carrito");
+
+        if (tabla.rows.length > 0) {
+
+            var ultimaFila = tabla.rows[tabla.rows.length - 1];
+
+            var precio = Number(ultimaFila.cells[2].textContent);
+            var cantidad = Number(ultimaFila.cells[0].textContent);
+            var subtotalAnterior = Number(ultimaFila.cells[3].textContent);
+
+            cantidad = cantidad + 1;
+
+            ultimaFila.cells[0].textContent = cantidad;
+
+            var subtotalNuevo = precio * cantidad;
+
+            ultimaFila.cells[3].textContent = subtotalNuevo;
+
+            total = total - subtotalAnterior + subtotalNuevo;
+
+            document.getElementById("total").textContent = "$" + total.toFixed(2);
+
+        }
+
+    }
+
+
+    else if (event.keyCode === 13) {
 
         var codigo = document.getElementById("codigoProducto").value;
         var cantidad = 1;
@@ -19,6 +69,7 @@ function buscarProducto(event) {
             codigo = entradaProducto[1]
 
         }
+
 
 
         for (let i = 0; i < productos.length; i++) {
@@ -41,15 +92,17 @@ function buscarProducto(event) {
                 c2.innerHTML = productos[i][1];
                 c3.innerHTML = productos[i][2];
                 c4.innerHTML = productos[i][2] * cantidad;
-                alert (productos[i][1]);  
-                             
+                alert(productos[i][1]);
+
                 total += productos[i][2] * cantidad;
                 document.getElementById("total").textContent = "$" + total.toFixed(2);
                 break;
-                
+
             }
-            
-        }    
+
+
+
+        }
     }
 
 }
