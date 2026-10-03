@@ -131,6 +131,8 @@ function buscarProducto(event) {
                 c3.setAttribute("style", "text-align:center;");
                 c4.setAttribute("style", "text-align:center;");
 
+
+
                 c1.innerHTML = cantidad;
                 c2.innerHTML = productos[i][1];
                 c3.innerHTML = productos[i][2];
@@ -150,4 +152,31 @@ function buscarProducto(event) {
         }
     }
 
+}
+
+function agregarProductoModal(nombre, precio) {
+
+    var tabla = document.getElementById("carrito");
+    var row = tabla.insertRow();
+
+    var c1 = row.insertCell(0);
+    var c2 = row.insertCell(1);
+    var c3 = row.insertCell(2);
+    var c4 = row.insertCell(3);
+
+
+    c1.setAttribute("style", "text-align:center;");
+    c2.setAttribute("style", "text-align:center;");
+    c3.setAttribute("style", "text-align:center;");
+    c4.setAttribute("style", "text-align:center;");
+    
+    c1.innerHTML = 1;
+    c2.innerHTML = nombre;
+    c3.innerHTML = precio;
+    c4.innerHTML = precio;
+
+    total += precio;
+
+    document.getElementById("total").textContent =
+        "$" + total.toFixed(2);
 }
