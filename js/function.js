@@ -2,7 +2,7 @@
 
 var total = 0;
 
-
+var ventaTerminada = false;
 
 function buscarProducto(event) {
 
@@ -51,14 +51,29 @@ function buscarProducto(event) {
             document.getElementById("total").textContent = "$" + total.toFixed(2);
 
         }
-
+        // Limpiamos el input cuando utilizamos la "r"
+        event.preventDefault();
     }
 
 
     else if (event.keyCode === 13) {
 
-        var codigo = document.getElementById("codigoProducto").value;
+        var input = document.getElementById("codigoProducto");
+        var codigo = input.value;
         var cantidad = 1;
+
+        // Si la venta anterior ya fue pagada y se ingresa un nuevo producto
+        if (ventaTerminada && !codigo.includes("p")) {
+
+            document.getElementById("carrito").innerHTML = "";
+
+            total = 0;
+            document.getElementById("total").textContent = "$0.00";
+
+            document.getElementById("mostrarCambio").textContent = "$0.00";
+
+            ventaTerminada = false;
+        }
 
         // Si el codigo incluye un asterisco se va multiplicar la cantidad
         if (codigo.includes("*")) {
@@ -66,11 +81,39 @@ function buscarProducto(event) {
             var entradaProducto = codigo.split("*");
 
             cantidad = Number(entradaProducto[0]);
-            codigo = entradaProducto[1]
+            codigo = entradaProducto[1];
 
         }
 
+        // Si el codigo incluye "p" calcula el pago
+        else if (codigo.includes("p")) {
 
+            var pagoCliente = codigo.split("p");
+            var pago = Number(pagoCliente[0]);
+
+            cambio = pago - total;
+
+            if (pago < total) {
+
+                console.log("No te alcanza");
+                document.getElementById("mostrarCambio").textContent = "Pago insuficiente";
+
+            }
+
+
+            else {
+                console.log(`Tu cambio es de: ${cambio}`);
+
+                document.getElementById("mostrarCambio").textContent = "$" + cambio.toFixed(2);
+
+                ventaTerminada = true;
+            }
+
+        }
+
+    }
+
+    {
 
         for (let i = 0; i < productos.length; i++) {
             if (codigo === productos[i][0]) {
@@ -100,7 +143,9 @@ function buscarProducto(event) {
 
             }
 
-
+            //Limpiamos el input
+            input.value = "";
+            input.focus();
 
         }
     }
