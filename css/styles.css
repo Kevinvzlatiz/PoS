@@ -266,8 +266,97 @@ h4 {
 
 }
 
+.opcionesPapitas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;   /* si el modal es angosto, pasan a otra línea */
+}
+
+.opcionesPapitas {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;     /* alinea las bases de las bolsas */
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.opcionPapita {
+    display: flex;
+    flex-direction: column;    /* imagen arriba, precio abajo */
+    align-items: center;
+}
+
+.opcionPapita h3 {
+    margin: 10px 0 0;
+}
+
 
 #cerrar {
+
+    float: right;
+
+    cursor: pointer;
+
+    font-size: 25px;
+
+}
+
+.tamanoCafe {
+
+    object-fit: contain;
+    cursor: pointer;
+    transition: transform 0.2s;
+
+}
+
+.tamanoCafe:hover {
+
+    transform: scale(1.1);
+
+}
+
+/* Café chico */
+.cafeChico {
+
+    width: 80px;
+    height: 80px;
+
+}
+
+/* Café mediano */
+.cafeMediano {
+
+    width: 120px;
+    height: 120px;
+
+}
+
+/* Café grande */
+.cafeGrande {
+
+    width: 160px;
+    height: 160px;
+
+}
+
+.opcionesCafe {
+    display: grid;
+    grid-auto-flow: column;      /* llena por columnas: imagen arriba, precio abajo */
+    grid-template-rows: auto auto;
+    justify-content: center;
+    align-items: end;            /* alinea las bases de los vasos */
+    justify-items: center;
+    column-gap: 20px;
+}
+
+.opcionesCafe h3 {
+    margin: 10px 0 0;
+}
+
+
+#cerrarBtn2 {
 
     float: right;
 
