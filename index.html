@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PoS</title>
     <link rel="stylesheet" href="./css/styles.css">
-    <script src="./js/productos.js"></script>
-    <script src="./js/function.js"></script>
-    <script src="./js/botones.js"></script>
+    <script src="./js/productos.js" defer></script>
+    <script src="./js/transfer.js" defer></script>
+    <script src="./js/botones.js" defer></script>
+    <script src="./js/function.js" defer></script>
 </head>
 
 <body>
@@ -58,8 +59,6 @@
     <!-- Único INPUT de todo el sistema -->
     <input type="text" id="codigoProducto" class="cProd" value="" onkeydown="buscarProducto(event)" autofocus>
 
-
-
     <!-- Botones -->
     <div class="btn">
 
@@ -86,36 +85,36 @@
 
     </div>
 
-<div id="modalProductos" class="modal">
+    <div id="modalProductos" class="modal">
 
-    <div class="modal-contenido">
+        <div class="modal-contenido">
 
-        <span id="cerrar">&times;</span>
+            <span id="cerrar">&times;</span>
 
-        <h2>Selecciona una papita</h2>
+            <h2>Selecciona una papita</h2>
 
-        <div class="opcionesPapitas">
+            <div class="opcionesPapitas">
 
-            <div class="opcionPapita">
-                <img src="./img/adobada.png" class="papita" data-nombre="Sabritas" data-precio="18">
-                <h3>$18</h3>
-            </div>
+                <div class="opcionPapita">
+                    <img src="./img/adobada.png" class="papita" data-nombre="Sabritas" data-precio="18">
+                    <h3>$18</h3>
+                </div>
 
-            <div class="opcionPapita">
-                <img src="./img/peanuts.png" class="papita" data-nombre="Doritos" data-precio="20">
-                <h3>$20</h3>
-            </div>
+                <div class="opcionPapita">
+                    <img src="./img/peanuts.png" class="papita" data-nombre="Doritos" data-precio="20">
+                    <h3>$20</h3>
+                </div>
 
-            <div class="opcionPapita">
-                <img src="./img/churrumais.png" class="papita" data-nombre="Ruffles" data-precio="22">
-                <h3>$22</h3>
+                <div class="opcionPapita">
+                    <img src="./img/churrumais.png" class="papita" data-nombre="Ruffles" data-precio="22">
+                    <h3>$22</h3>
+                </div>
+
             </div>
 
         </div>
 
     </div>
-
-</div>
 
     <div id="modalCafe" class="modal">
 
@@ -136,7 +135,60 @@
             </div>
 
         </div>
+    </div>
 
+    <!-- Modal de deposito - Tarjeta -->
+    <div id="modalTarjeta" class="modal">
+
+        <div class="contenidoModal">
+
+            <h3>Ingrese tarjeta</h3>
+
+            <label>Número de tarjeta</label>
+
+            <input type="text" id="numeroTarjeta" maxlength="16" placeholder="Ingrese 16 dígitos">
+
+            <label>Confirmar tarjeta</label>
+
+            <input type="text" id="confirmarNumeroTarjeta" maxlength="16" placeholder="Confirme tarjeta">
+
+            <button id="confirmarTarjeta">
+                Confirmar
+            </button>
+
+            <button id="cerrarTarjeta">
+                Cerrar
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- Modal de tarjeta -->
+    <div id="modalTarjeta" class="modal">
+        <div class="contenidoModal">
+            <h3>Ingrese tarjeta</h3>
+
+            <label>Número de tarjeta</label>
+            <input type="text" id="numeroTarjeta" maxlength="16" placeholder="Ingrese 16 dígitos">
+
+            <label>Confirmar tarjeta</label>
+            <input type="text" id="confirmarNumeroTarjeta" maxlength="16" placeholder="Confirme tarjeta">
+
+            <button id="confirmarTarjeta">Confirmar</button>
+            <button id="cerrarTarjeta">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Modal de monto -->
+    <div id="modalMonto" class="modal">
+        <div class="contenidoModal">
+            <h3>Ingrese monto del depósito</h3>
+            <input type="number" id="montoDeposito" placeholder="Monto">
+            <button id="confirmarMonto">Confirmar</button>
+        </div>
+    </div>
 </body>
 
 </html>

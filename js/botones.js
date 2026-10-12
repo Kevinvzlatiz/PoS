@@ -15,45 +15,48 @@ function abrirModalProducto() {
 
     // CERRAR MODAL
     cerrar.onclick = function () {
-
         modal.style.display = "none";
-
     }
 
     // Botón 2
-
     var btn2 = document.getElementById("btn2");
     var modal2 = document.getElementById("modalCafe");
     var cerrarBtn2 = document.getElementById("cerrarBtn2");
 
     // BOTÓN 2 ABRE EL MODAL
     btn2.onclick = function () {
-
         modal2.style.display = "block";
-
     }
 
     // CERRAR MODAL 2
     cerrarBtn2.onclick = function () {
-
         modal2.style.display = "none";
+    }
 
+    // Botón 3
+    var btn3 = document.getElementById("btn3");
+    var modalTarjeta = document.getElementById("modalTarjeta");
+    var cerrarTarjeta = document.getElementById("cerrarTarjeta");
+
+    btn3.onclick = function () {
+        modalTarjeta.style.display = "block";
+    }
+
+    cerrarTarjeta.onclick = function () {
+        modalTarjeta.style.display = "none";
     }
 
     // SELECCIONAR PAPITA Y AGREGAR AL CARRITO
     var papitas = document.querySelectorAll(".papita");
 
     papitas.forEach(function (papita) {
-
         papita.onclick = function () {
 
             var nombre = papita.dataset.nombre;
             var precio = Number(papita.dataset.precio);
 
             agregarProductoModal(nombre, precio);
-
             modal.style.display = "none";
-
         }
 
     });
@@ -80,7 +83,5 @@ function abrirModalProducto() {
 }
 
 window.onload = function () {
-
     abrirModalProducto();
-
 };
