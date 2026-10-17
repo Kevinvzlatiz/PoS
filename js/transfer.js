@@ -1,96 +1,76 @@
-console.log("transfer.js cargado");
+document.addEventListener("DOMContentLoaded", function(){
 
-var inputTarjeta = document.getElementById("numeroTarjeta");
-var mostrarTarjeta = document.getElementById("tarjetaCensurada");
-var inputConfirmar = document.getElementById("confirmarNumeroTarjeta"); // solo existe en el modal viejo
+console.log("transferenciaT.js cargado");
 
-inputTarjeta.oninput = function () {
-    var tarjeta = inputTarjeta.value;
+var btn5 = document.getElementById("btn5");
+var modalTransferenciaT = document.getElementById("modalTransferenciaT");
+var cerrarTransferenciaT = document.getElementById("cerrarTransferenciaT");
+var confirmarTransferenciaT = document.getElementById("confirmarTransferenciaT");
 
-    if (tarjeta.length === 16 && mostrarTarjeta) {
-        var censura = "*".repeat(12);
-        var ultimos = tarjeta.slice(12);
-        mostrarTarjeta.value = censura + ultimos;
-    }
+var tarjetaOrigen = document.getElementById("tarjetaOrigen");
+var tarjetaDestino = document.getElementById("tarjetaDestino");
+var montoTransferencia = document.getElementById("montoTransferencia");
+
+
+btn5.onclick = function(){
+    modalTransferenciaT.style.display = "block";
 };
 
-// Confirmar tarjeta
 
-var confirmarTarjeta = document.getElementById("confirmarTarjeta");
+cerrarTransferenciaT.onclick = function(){
+    modalTransferenciaT.style.display = "none";
+    limpiarTransferencia();
+};
 
-var modalTarjeta = document.getElementById("modalTarjeta");
-var modalMonto = document.getElementById("modalMonto");
 
+confirmarTransferenciaT.onclick = function(){
 
-confirmarTarjeta.onclick = function () {
+    var origen = tarjetaOrigen.value.trim();
+    var destino = tarjetaDestino.value.trim();
+    var monto = Number(montoTransferencia.value);
 
-    var tarjeta = inputTarjeta.value;
-
-    // si existe el campo "confirmar tarjeta", deben coincidir
-    if (inputConfirmar && inputConfirmar.value !== tarjeta) {
-        alert("Las tarjetas no coinciden");
+    if(origen == "" || destino == "" || monto <= 0){
+        alert("Completa todos los campos");
         return;
     }
 
-    if (tarjeta.length === 16) {
-        modalTarjeta.style.display = "none";
-        modalMonto.style.display = "block";
+    if(origen.length != 16 || destino.length != 16){
+        alert("Las tarjetas deben tener 16 dígitos");
+        return;
     }
 
-    else {
-
-        alert("Tarjeta inválida");
-
+    if(origen == destino){
+        alert("Las tarjetas no pueden ser iguales");
+        return;
     }
-
-};
-
-
-// Confirmar monto
-
-var confirmarMonto = document.getElementById("confirmarMonto");
-var montoDeposito = document.getElementById("montoDeposito");
-var carrito = document.getElementById("carrito");
-var totalPantalla = document.getElementById("total");
-
-confirmarMonto.onclick = function () {
 
     var comision = 12;
-    var monto = Number(montoDeposito.value);
-    var tarjeta = inputTarjeta.value;
+    var totalTransferencia = monto + comision;
 
-    if (monto > 0) {
+    var producto = {
+        codigo: "TRANS001",
+        nombre: "Transferencia tarjeta a tarjeta",
+        precio: totalTransferencia
+    };
 
-        // Agregar fila a la tabla del POS
-        var fila = document.createElement("tr");
+    agregarProducto(producto);
 
-        var totalConComision = monto + comision;
+    alert(
+        "Transferencia realizada\n" +
+        "Monto: $" + monto.toFixed(2) +
+        "\nComisión: $12.00" +
+        "\nTotal: $" + totalTransferencia.toFixed(2)
+    );
 
-        fila.innerHTML =
-            "<td>1</td>" +
-            "<td>Depósito tarjeta ****" + tarjeta.slice(12) + " (Comisión $12.00)</td>" +
-            "<td>$" + monto.toFixed(2) + "</td>" +
-            "<td>$" + totalConComision.toFixed(2) + "</td>";
-
-        carrito.appendChild(fila);
-
-        // Actualizar el total
-        var totalActual = Number(totalPantalla.textContent.replace("$", "").replace(",", ""));
-        totalPantalla.textContent = "$" + (totalActual + monto + comision).toFixed(2);
-
-        // Limpiar y cerrar
-        modalMonto.style.display = "none";
-        montoDeposito.value = "";
-        inputTarjeta.value = "";
-        if (mostrarTarjeta) mostrarTarjeta.value = "";
-        if (inputConfirmar) inputConfirmar.value = "";
-
-    }
-
-    else {
-
-        alert("Monto inválido");
-
-    }
-
+    modalTransferenciaT.style.display = "none";
+    limpiarTransferencia();
 };
+
+
+function limpiarTransferencia(){
+    tarjetaOrigen.value = "";
+    tarjetaDestino.value = "";
+    montoTransferencia.value = "";
+}
+
+});

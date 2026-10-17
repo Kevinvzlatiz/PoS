@@ -481,3 +481,132 @@ h4 {
     text-align: center;
     vertical-align: middle;
 }
+
+/* FONDO DEL MODAL */
+.modal {
+
+    display: none;
+
+    position: fixed;
+
+    z-index: 1000;
+
+    left: 0;
+
+    top: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    background-color: rgba(0,0,0,0.5);
+
+}
+
+
+
+/* CAJA DEL MODAL */
+
+.modal-contenido {
+
+    background-color: white;
+
+    width: 350px;
+
+    margin: 10% auto;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    box-shadow: 0px 5px 20px rgba(0,0,0,0.3);
+
+    text-align: center;
+
+}
+
+
+
+/* TITULO */
+
+.modal-contenido h2{
+
+    margin-bottom: 20px;
+
+    color: #333;
+
+}
+
+
+
+/* INPUTS */
+
+.modal-contenido input{
+
+    width: 90%;
+
+    padding: 12px;
+
+    margin: 8px;
+
+    border-radius: 8px;
+
+    border: 1px solid #ccc;
+
+    font-size: 16px;
+
+}
+
+
+
+/* BOTON CONFIRMAR */
+
+#confirmarTransferenciaT{
+
+    background-color: #198754;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 20px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    margin-top:15px;
+
+    font-size:16px;
+
+}
+
+
+#confirmarTransferenciaT:hover{
+
+    background-color:#157347;
+
+}
+
+
+
+/* CERRAR */
+
+.cerrar{
+
+    float:right;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+    color:#555;
+
+}
+
+
+.cerrar:hover{
+
+    color:red;
+
+}

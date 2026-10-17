@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PoS</title>
     <link rel="stylesheet" href="./css/styles.css">
-    <script src="./js/productos.js" defer></script>
-    <script src="./js/transfer.js" defer></script>
-    <script src="./js/botones.js" defer></script>
-    <script src="./js/function.js" defer></script>
+    <script src="./js/productos.js"></script>
+    <script src="./js/function.js"></script>
+    <script src="./js/botones.js"></script>
 </head>
 
 <body>
@@ -58,6 +57,8 @@
 
     <!-- Único INPUT de todo el sistema -->
     <input type="text" id="codigoProducto" class="cProd" value="" onkeydown="buscarProducto(event)" autofocus>
+
+
 
     <!-- Botones -->
     <div class="btn">
@@ -135,60 +136,69 @@
             </div>
 
         </div>
+
     </div>
+    <!-- Modal de depósitos -->
+    <div id="modalDepositos" class="modal">
 
-    <!-- Modal de deposito - Tarjeta -->
-    <div id="modalTarjeta" class="modal">
+        <div class="modal-contenido">
 
-        <div class="contenidoModal">
+            <span id="cerrarDepositos">&times;</span>
 
-            <h3>Ingrese tarjeta</h3>
+            <h2>Depósitos</h2>
 
-            <label>Número de tarjeta</label>
+            <label for="tarjeta1">Número de tarjeta</label>
+            <input type="text" id="tarjeta1" placeholder="Ingresa el número de tarjeta" inputmode="numeric"
+                autocomplete="off">
 
-            <input type="text" id="numeroTarjeta" maxlength="16" placeholder="Ingrese 16 dígitos">
+            <label for="tarjeta2">Confirmar número de tarjeta</label>
+            <input type="text" id="tarjeta2" placeholder="Repite el número de tarjeta" inputmode="numeric"
+                autocomplete="off">
 
-            <label>Confirmar tarjeta</label>
-
-            <input type="text" id="confirmarNumeroTarjeta" maxlength="16" placeholder="Confirme tarjeta">
-
-            <button id="confirmarTarjeta">
+            <button type="button" id="confirmarDeposito">
                 Confirmar
             </button>
 
-            <button id="cerrarTarjeta">
-                Cerrar
+            <p id="mensajeDeposito"></p>
+
+        </div>
+
+    </div>
+
+    <!-- Segundo modal: cantidad del depósito -->
+    <div id="modalCantidad" class="modal">
+
+        <div class="modal-contenido">
+
+            <span id="cerrarCantidad">&times;</span>
+
+            <h2>Cantidad del depósito</h2>
+
+            <label for="montoDeposito">Monto a depositar</label>
+            <input type="number" id="montoDeposito" placeholder="$0.00" min="0.01" step="0.01">
+
+            <div class="resumenDeposito">
+                <p>Depósito: <strong id="importeDeposito">$0.00</strong></p>
+                <p>Comisión: <strong>$12.00</strong></p>
+                <hr>
+                <h3>
+                    Total a pagar:
+                    <span id="totalDeposito">$12.00</span>
+                </h3>
+            </div>
+
+            <button type="button" id="confirmarCantidad">
+                Confirmar depósito
             </button>
 
+            <p id="mensajeCantidad"></p>
+
         </div>
 
     </div>
 
 
-    <!-- Modal de tarjeta -->
-    <div id="modalTarjeta" class="modal">
-        <div class="contenidoModal">
-            <h3>Ingrese tarjeta</h3>
 
-            <label>Número de tarjeta</label>
-            <input type="text" id="numeroTarjeta" maxlength="16" placeholder="Ingrese 16 dígitos">
-
-            <label>Confirmar tarjeta</label>
-            <input type="text" id="confirmarNumeroTarjeta" maxlength="16" placeholder="Confirme tarjeta">
-
-            <button id="confirmarTarjeta">Confirmar</button>
-            <button id="cerrarTarjeta">Cerrar</button>
-        </div>
-    </div>
-
-    <!-- Modal de monto -->
-    <div id="modalMonto" class="modal">
-        <div class="contenidoModal">
-            <h3>Ingrese monto del depósito</h3>
-            <input type="number" id="montoDeposito" placeholder="Monto">
-            <button id="confirmarMonto">Confirmar</button>
-        </div>
-    </div>
 </body>
 
 </html>
